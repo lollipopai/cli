@@ -1,0 +1,19 @@
+# Go build output
+/cpk
+/cpk-go
+dist/
+coverage.out
+coverage.html
+
+# Python (legacy)
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
