@@ -146,18 +146,16 @@ Call any Twirp RPC endpoint directly — useful for endpoints not wrapped by a n
 cpk call <service> <method> [json-payload]
 ```
 
-Examples:
+The `lollipop.proto.` prefix is added automatically, so you just need the short service name:
 
 ```bash
-cpk call lollipop.proto.recipe.v1.RecipeV1 Search '{"query":"curry"}'
-cpk call lollipop.proto.user.v1.UserV1 Current
-cpk call lollipop.proto.basket.v1.BasketV1 Show
-cpk call lollipop.proto.product.v2.ProductV2 Search '{"keyword":"eggs"}'
-cpk call lollipop.proto.slot.v1.SlotV1 List
-cpk call lollipop.proto.plan.v1.PlanV1 Show
+cpk call recipe.v1.RecipeV1 Search '{"query":"curry"}'
+cpk call user.v1.UserV1 Current
+cpk call basket.v1.BasketV1 Show
+cpk call product.v2.ProductV2 Search '{"keyword":"eggs"}'
+cpk call slot.v1.SlotV1 List
+cpk call plan.v1.PlanV1 Show
 ```
-
-Services follow the pattern `lollipop.proto.<domain>.<version>.<ServiceName>`.
 
 ### Shell completions
 

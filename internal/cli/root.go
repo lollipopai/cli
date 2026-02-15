@@ -39,7 +39,7 @@ Examples:
   cpk playlists                          List playlists
   cpk config set-url https://alpha.lollipopai.com
   cpk config show                        Show current config
-  cpk call <service> <method> [payload]  Raw Twirp call
+  cpk call recipe.v1.RecipeV1 Search     Raw Twirp call
   cpk logout                             Clear credentials`,
 	SilenceUsage:  true,
 	SilenceErrors: true,
