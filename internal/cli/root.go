@@ -37,7 +37,6 @@ Examples:
   cpk plan                               Show current meal plan
   cpk plan add-recipe 1 100 101          Add recipes to a plan
   cpk playlists                          List playlists
-  cpk config set-url https://alpha.lollipopai.com
   cpk config show                        Show current config
   cpk call recipe.v1.RecipeV1 Search     Raw Twirp call
   cpk logout                             Clear credentials`,

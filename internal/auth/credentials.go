@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	DefaultBaseURL    = "https://localhost:3000"
+	DefaultBaseURL    = "https://alpha.lollipopai.com"
 	OAuthRedirectPort = 9876
 	OAuthRedirectURI  = "http://127.0.0.1:9876/callback"
 )

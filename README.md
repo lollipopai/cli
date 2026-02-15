@@ -30,14 +30,6 @@ make install    # copies to GOPATH/bin or /usr/local/bin
 
 ## Setup
 
-Point the CLI at your Cherrypick instance (defaults to `https://localhost:3000`):
-
-```bash
-cpk config set-url https://alpha.lollipopai.com
-```
-
-## Authentication
-
 ```bash
 cpk login       # Opens browser for OAuth 2.1 PKCE login
 cpk whoami      # Show current user profile
