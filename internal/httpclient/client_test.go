@@ -13,7 +13,7 @@ import (
 func TestGetJSON_Success(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		assert.Equal(t, "GET", r.Method)
-		assert.Contains(t, r.Header.Get("User-Agent"), "cpk-cli/")
+		assert.Contains(t, r.Header.Get("User-Agent"), "chp-cli/")
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]string{"hello": "world"})
 	}))
@@ -108,11 +108,11 @@ func TestCustomHeaders(t *testing.T) {
 }
 
 func TestUserAgent(t *testing.T) {
-	SetUserAgent("cpk-cli/test")
-	defer SetUserAgent("cpk-cli/dev")
+	SetUserAgent("chp-cli/test")
+	defer SetUserAgent("chp-cli/dev")
 
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		assert.Equal(t, "cpk-cli/test", r.Header.Get("User-Agent"))
+		assert.Equal(t, "chp-cli/test", r.Header.Get("User-Agent"))
 		w.Write([]byte("{}"))
 	}))
 	defer srv.Close()

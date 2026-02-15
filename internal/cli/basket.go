@@ -78,10 +78,10 @@ Per-item quantities can be specified with uid:qty syntax.
 The -q flag sets the default quantity for items without an explicit quantity.
 
 Examples:
-  cpk basket add-product 7834128 7209381           # qty defaults to 1
-  cpk basket add-product 7834128:2 7209381:3       # per-item quantities
-  cpk basket add-product 7834128 7209381 -q 2      # -q sets default for all
-  cpk basket add-product 7834128:3 7209381 -q 2    # 7834128→3, 7209381→2`,
+  chp basket add-product 7834128 7209381           # qty defaults to 1
+  chp basket add-product 7834128:2 7209381:3       # per-item quantities
+  chp basket add-product 7834128 7209381 -q 2      # -q sets default for all
+  chp basket add-product 7834128:3 7209381 -q 2    # 7834128→3, 7209381→2`,
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		defaultQty := basketQuantity

@@ -14,32 +14,32 @@ import (
 var Version = "dev"
 
 var rootCmd = &cobra.Command{
-	Use:   "cpk",
+	Use:   "chp",
 	Short: "Cherrypick CLI - interact with the Cherrypick API",
 	Long: `Cherrypick CLI - interact with the Cherrypick API
 
 Examples:
-  cpk login                              Sign in via OAuth in browser
-  cpk whoami                             Show current user
-  cpk recipes search curry               Search for recipes
-  cpk recipes get chicken-tikka          Get recipe by slug
-  cpk products search milk               Search products
-  cpk products get 7834128               Get product by Sainsbury's UID
-  cpk basket                             Show basket
-  cpk basket add-recipe 1 2 3            Add recipes to basket
-  cpk basket add-product 7834128 7209381 Add products to basket
-  cpk basket add-product 7834128:2       Add product with quantity
-  cpk basket set-quantity 7834128 4      Change product quantity
-  cpk orders                             List orders
-  cpk orders get 42                      Get order with product UIDs
-  cpk slots                              List delivery slots
-  cpk slots book 5                       Book a delivery slot
-  cpk plan                               Show current meal plan
-  cpk plan add-recipe 1 100 101          Add recipes to a plan
-  cpk playlists                          List playlists
-  cpk config show                        Show current config
-  cpk call recipe.v1.RecipeV1 Search     Raw Twirp call
-  cpk logout                             Clear credentials`,
+  chp login                              Sign in via OAuth in browser
+  chp whoami                             Show current user
+  chp recipes search curry               Search for recipes
+  chp recipes get chicken-tikka          Get recipe by slug
+  chp products search milk               Search products
+  chp products get 7834128               Get product by Sainsbury's UID
+  chp basket                             Show basket
+  chp basket add-recipe 1 2 3            Add recipes to basket
+  chp basket add-product 7834128 7209381 Add products to basket
+  chp basket add-product 7834128:2       Add product with quantity
+  chp basket set-quantity 7834128 4      Change product quantity
+  chp orders                             List orders
+  chp orders get 42                      Get order with product UIDs
+  chp slots                              List delivery slots
+  chp slots book 5                       Book a delivery slot
+  chp plan                               Show current meal plan
+  chp plan add-recipe 1 100 101          Add recipes to a plan
+  chp playlists                          List playlists
+  chp config show                        Show current config
+  chp call recipe.v1.RecipeV1 Search     Raw Twirp call
+  chp logout                             Clear credentials`,
 	SilenceUsage:  true,
 	SilenceErrors: true,
 }
@@ -48,7 +48,7 @@ Examples:
 func Execute(version string) {
 	Version = version
 	rootCmd.Version = version
-	httpclient.SetUserAgent("cpk-cli/" + version)
+	httpclient.SetUserAgent("chp-cli/" + version)
 
 	// SIGINT → exit 130
 	sigCh := make(chan os.Signal, 1)

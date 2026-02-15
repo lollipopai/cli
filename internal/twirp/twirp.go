@@ -26,7 +26,7 @@ func (c *Caller) Call(servicePath, method string, payload any) (any, error) {
 	// Auto-refresh if token is expiring
 	if c.Creds.IsOAuthTokenExpiring() {
 		if err := auth.RefreshOAuthToken(c.Client, c.Creds); err != nil {
-			output.Warn("OAuth token expired and refresh failed. Try: cpk login")
+			output.Warn("OAuth token expired and refresh failed. Try: chp login")
 		}
 	}
 
@@ -49,7 +49,7 @@ func (c *Caller) Call(servicePath, method string, payload any) (any, error) {
 	body, err := c.Client.PostJSON(url, payload, headers)
 	if err != nil {
 		if apiErr, ok := err.(*httpclient.APIError); ok && apiErr.StatusCode == 401 {
-			return nil, fmt.Errorf("%s\nTry: cpk login", apiErr.Message)
+			return nil, fmt.Errorf("%s\nTry: chp login", apiErr.Message)
 		}
 		return nil, err
 	}

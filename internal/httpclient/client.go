@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-var userAgent = "cpk-cli/dev"
+var userAgent = "chp-cli/dev"
 
 // SetUserAgent sets the User-Agent header for all requests.
 func SetUserAgent(ua string) {

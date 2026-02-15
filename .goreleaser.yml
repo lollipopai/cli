@@ -1,8 +1,8 @@
 version: 2
 
 builds:
-  - main: ./cmd/cpk
-    binary: cpk
+  - main: ./cmd/chp
+    binary: chp
     env:
       - CGO_ENABLED=0
     ldflags:
@@ -17,7 +17,7 @@ builds:
 
 archives:
   - format: tar.gz
-    name_template: "cpk_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    name_template: "chp_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
       - goos: windows
         format: zip
@@ -41,4 +41,4 @@ brews:
     description: Cherrypick CLI - interact with the Cherrypick API
     license: MIT
     install: |
-      bin.install "cpk"
+      bin.install "chp"

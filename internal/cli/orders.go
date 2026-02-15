@@ -45,7 +45,7 @@ var ordersGetCmd = &cobra.Command{
 			fmt.Printf("  %s\n", strings.Join(uids, " "))
 			fmt.Println()
 			output.Info("Re-add to basket:")
-			fmt.Printf("  cpk basket add-product %s\n", strings.Join(uids, " "))
+			fmt.Printf("  chp basket add-product %s\n", strings.Join(uids, " "))
 		}
 	},
 }

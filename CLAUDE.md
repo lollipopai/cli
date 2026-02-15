@@ -1,4 +1,4 @@
-# cpk - Cherrypick CLI
+# chp - Cherrypick CLI
 
 ## Project Overview
 
@@ -7,7 +7,7 @@ Go CLI tool for the Cherrypick API. Communicates via Twirp RPC (protobuf-over-HT
 ## Architecture
 
 ```
-cmd/cpk/main.go          Entrypoint, sets version from ldflags
+cmd/chp/main.go          Entrypoint, sets version from ldflags
 internal/
   output/                 Info/Success/Warn/Error/Fatal + colored JSON
   httpclient/             HTTP client, localhost TLS skip, APIError
@@ -62,7 +62,7 @@ Examples:
 - `lollipop.proto.slot.v1.SlotV1`
 - `lollipop.proto.plan.v1.PlanV1`
 
-Use `cpk call <service> <method> [payload]` for any endpoint not wrapped by a named command.
+Use `chp call <service> <method> [payload]` for any endpoint not wrapped by a named command.
 
 ## Testing
 
@@ -75,7 +75,7 @@ Use `cpk call <service> <method> [payload]` for any endpoint not wrapped by a na
 ## Building
 
 ```bash
-make build          # Builds ./cpk with version from git
+make build          # Builds ./chp with version from git
 make test           # Runs all tests
 make install        # Copies to GOPATH/bin or /usr/local/bin
 ```

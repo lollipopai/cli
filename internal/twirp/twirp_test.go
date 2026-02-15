@@ -54,7 +54,7 @@ func TestCall_401Hint(t *testing.T) {
 	caller := NewCaller(httpclient.New(), creds)
 	_, err := caller.Call("svc", "Method", nil)
 	require.Error(t, err)
-	assert.Contains(t, err.Error(), "Try: cpk login")
+	assert.Contains(t, err.Error(), "Try: chp login")
 }
 
 func TestCall_NilPayload(t *testing.T) {

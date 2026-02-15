@@ -24,7 +24,7 @@ func init() {
 	if err != nil {
 		home = os.Getenv("HOME")
 	}
-	ConfigDir = filepath.Join(home, ".cpk")
+	ConfigDir = filepath.Join(home, ".chp")
 	CredentialsFile = filepath.Join(ConfigDir, "credentials.json")
 }
 
@@ -87,7 +87,7 @@ func (c *Credentials) GetToken() (string, error) {
 	if c.JWT != "" {
 		return c.JWT, nil
 	}
-	return "", errors.New("not logged in. Run: cpk login")
+	return "", errors.New("not logged in. Run: chp login")
 }
 
 // IsOAuthTokenExpiring returns true if the OAuth token is expired or within 60s of expiry.

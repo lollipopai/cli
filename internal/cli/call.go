@@ -19,12 +19,12 @@ var callCmd = &cobra.Command{
 The lollipop.proto. prefix is added automatically.
 
 Examples:
-  cpk call recipe.v1.RecipeV1 Search '{"query":"curry"}'
-  cpk call user.v1.UserV1 Current
-  cpk call basket.v1.BasketV1 Show
-  cpk call product.v2.ProductV2 Search '{"keyword":"eggs"}'
-  cpk call slot.v1.SlotV1 List
-  cpk call plan.v1.PlanV1 Show`,
+  chp call recipe.v1.RecipeV1 Search '{"query":"curry"}'
+  chp call user.v1.UserV1 Current
+  chp call basket.v1.BasketV1 Show
+  chp call product.v2.ProductV2 Search '{"keyword":"eggs"}'
+  chp call slot.v1.SlotV1 List
+  chp call plan.v1.PlanV1 Show`,
 	Args: cobra.RangeArgs(2, 3),
 	Run: func(cmd *cobra.Command, args []string) {
 		service := args[0]

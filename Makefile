@@ -4,7 +4,7 @@ LDFLAGS := -ldflags "-X main.version=$(VERSION)"
 .PHONY: build test test-cover lint clean install
 
 build:
-	go build $(LDFLAGS) -o cpk ./cmd/cpk
+	go build $(LDFLAGS) -o chp ./cmd/chp
 
 test:
 	go test ./...
@@ -17,7 +17,7 @@ lint:
 	go vet ./...
 
 clean:
-	rm -f cpk cpk-go coverage.out coverage.html
+	rm -f chp chp-go coverage.out coverage.html
 
 install: build
-	cp cpk $(GOPATH)/bin/cpk 2>/dev/null || cp cpk /usr/local/bin/cpk
+	cp chp $(GOPATH)/bin/chp 2>/dev/null || cp chp /usr/local/bin/chp

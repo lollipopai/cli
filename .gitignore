@@ -1,6 +1,6 @@
 # Go build output
-/cpk
-/cpk-go
+/chp
+/chp-go
 dist/
 coverage.out
 coverage.html
