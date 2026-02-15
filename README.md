@@ -58,9 +58,11 @@ cpk recipes get 42                       # Get recipe by ID
 
 ### Products
 
+Products are identified by their Sainsbury's product UID.
+
 ```bash
 cpk products search milk                # Search products by keyword
-cpk products get 123                    # Get a product by ID
+cpk products get 7834128                # Get a product by Sainsbury's UID
 ```
 
 ### Basket
@@ -68,12 +70,22 @@ cpk products get 123                    # Get a product by ID
 ```bash
 cpk basket                              # Show current basket
 cpk basket show                         # Same as above
-cpk basket add-recipe 456               # Add a recipe to the basket
-cpk basket remove-recipe 456            # Remove a recipe from the basket
-cpk basket add-product 789              # Add a product to the basket
-cpk basket add-product 789 -q 2         # Add product with quantity
-cpk basket remove-product 789           # Remove a product from the basket
-cpk basket clear                        # Clear the entire basket
+
+# Recipes (batch)
+cpk basket add-recipe 1 2 3             # Add multiple recipes at once
+cpk basket remove-recipe 1 2            # Remove multiple recipes
+
+# Products (batch, with quantities)
+cpk basket add-product 7834128 7209381           # Add products (qty defaults to 1)
+cpk basket add-product 7834128:2 7209381:3       # Per-item quantities via uid:qty
+cpk basket add-product 7834128 7209381 -q 2      # -q sets default quantity for all
+cpk basket add-product 7834128:3 7209381 -q 2    # 7834128→3, 7209381→2 (explicit overrides -q)
+cpk basket remove-product 7834128 7209381        # Remove multiple products
+
+# Quantity management
+cpk basket set-quantity 7834128 4        # Set quantity of a product already in basket
+
+cpk basket clear                         # Clear the entire basket
 ```
 
 ### Orders
@@ -81,7 +93,34 @@ cpk basket clear                        # Clear the entire basket
 ```bash
 cpk orders                              # List order summaries
 cpk orders list                         # Same as above
-cpk orders get 42                       # Get a specific order by ID
+cpk orders get 42                       # Get order by ID (also prints product UIDs for re-ordering)
+```
+
+`orders get` prints the full order JSON followed by a summary of all Sainsbury's product UIDs found in the order, with a ready-to-use `cpk basket add-product` command for re-ordering.
+
+### Slots
+
+Manage Sainsbury's delivery slots. Also available as `cpk delivery`.
+
+```bash
+cpk slots                               # List available delivery slots
+cpk slots list                          # Same as above
+cpk slots get 5                         # Get slot details
+cpk slots book 5                        # Book a delivery slot
+cpk delivery                            # Alias for cpk slots
+```
+
+### Plan
+
+Manage your weekly meal plan.
+
+```bash
+cpk plan                                # Show current meal plan
+cpk plan show                           # Same as above
+cpk plan list                           # List available plans
+cpk plan get 1                          # Get a specific plan
+cpk plan add-recipe 1 100 101 102       # Add recipes to plan 1 (batch)
+cpk plan remove-recipe 1 100            # Remove recipe 100 from plan 1
 ```
 
 ### Playlists
@@ -114,6 +153,8 @@ cpk call lollipop.proto.recipe.v1.RecipeV1 Search '{"query":"curry"}'
 cpk call lollipop.proto.user.v1.UserV1 Current
 cpk call lollipop.proto.basket.v1.BasketV1 Show
 cpk call lollipop.proto.product.v2.ProductV2 Search '{"keyword":"eggs"}'
+cpk call lollipop.proto.slot.v1.SlotV1 List
+cpk call lollipop.proto.plan.v1.PlanV1 Show
 ```
 
 Services follow the pattern `lollipop.proto.<domain>.<version>.<ServiceName>`.

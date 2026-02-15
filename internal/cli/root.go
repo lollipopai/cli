@@ -19,20 +19,28 @@ var rootCmd = &cobra.Command{
 	Long: `CherryPick CLI - interact with the CherryPick API
 
 Examples:
-  cpk login                         Sign in via OAuth in browser
-  cpk whoami                        Show current user
-  cpk recipes search curry          Search for recipes
-  cpk recipes get chicken-tikka     Get recipe by slug
-  cpk products search milk          Search products
-  cpk basket                        Show basket
-  cpk basket add-recipe 123         Add recipe to basket
-  cpk basket add-product 456        Add product to basket
-  cpk orders                        List orders
-  cpk playlists                     List playlists
+  cpk login                              Sign in via OAuth in browser
+  cpk whoami                             Show current user
+  cpk recipes search curry               Search for recipes
+  cpk recipes get chicken-tikka          Get recipe by slug
+  cpk products search milk               Search products
+  cpk products get 7834128               Get product by Sainsbury's UID
+  cpk basket                             Show basket
+  cpk basket add-recipe 1 2 3            Add recipes to basket
+  cpk basket add-product 7834128 7209381 Add products to basket
+  cpk basket add-product 7834128:2       Add product with quantity
+  cpk basket set-quantity 7834128 4      Change product quantity
+  cpk orders                             List orders
+  cpk orders get 42                      Get order with product UIDs
+  cpk slots                              List delivery slots
+  cpk slots book 5                       Book a delivery slot
+  cpk plan                               Show current meal plan
+  cpk plan add-recipe 1 100 101          Add recipes to a plan
+  cpk playlists                          List playlists
   cpk config set-url https://app.cherrypick.co
-  cpk config show                   Show current config
+  cpk config show                        Show current config
   cpk call <service> <method> [payload]  Raw Twirp call
-  cpk logout                        Clear credentials`,
+  cpk logout                             Clear credentials`,
 	SilenceUsage:  true,
 	SilenceErrors: true,
 }
@@ -74,6 +82,8 @@ func init() {
 	rootCmd.AddCommand(ordersCmd)
 	rootCmd.AddCommand(playlistsCmd)
 	rootCmd.AddCommand(basketCmd)
+	rootCmd.AddCommand(slotsCmd)
+	rootCmd.AddCommand(planCmd)
 	rootCmd.AddCommand(configCmd)
 	rootCmd.AddCommand(callCmd)
 }

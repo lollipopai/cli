@@ -59,6 +59,8 @@ Examples:
 - `lollipop.proto.recipe.v1.RecipeV1`
 - `lollipop.proto.product.v2.ProductV2`
 - `lollipop.proto.basket.v1.BasketV1`
+- `lollipop.proto.slot.v1.SlotV1`
+- `lollipop.proto.plan.v1.PlanV1`
 
 Use `cpk call <service> <method> [payload]` for any endpoint not wrapped by a named command.
 

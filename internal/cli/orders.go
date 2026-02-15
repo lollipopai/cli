@@ -1,6 +1,9 @@
 package cli
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/lollipopai/cli/internal/output"
 	"github.com/spf13/cobra"
 )
@@ -34,7 +37,48 @@ var ordersGetCmd = &cobra.Command{
 			output.Fatal(err.Error())
 		}
 		output.PrintJSON(result)
+
+		uids := extractProductUIDs(result)
+		if len(uids) > 0 {
+			fmt.Println()
+			output.Info("Product UIDs (for re-ordering):")
+			fmt.Printf("  %s\n", strings.Join(uids, " "))
+			fmt.Println()
+			output.Info("Re-add to basket:")
+			fmt.Printf("  cpk basket add-product %s\n", strings.Join(uids, " "))
+		}
 	},
+}
+
+// extractProductUIDs walks a JSON-decoded response tree and collects product
+// identifier values from known field names.
+func extractProductUIDs(v any) []string {
+	var uids []string
+	seen := map[string]bool{}
+
+	var walk func(v any)
+	walk = func(v any) {
+		switch val := v.(type) {
+		case map[string]any:
+			for key, child := range val {
+				switch key {
+				case "sainsburys_uid", "product_uid", "product_id", "uid":
+					if s, ok := child.(string); ok && s != "" && !seen[s] {
+						seen[s] = true
+						uids = append(uids, s)
+					}
+				default:
+					walk(child)
+				}
+			}
+		case []any:
+			for _, item := range val {
+				walk(item)
+			}
+		}
+	}
+	walk(v)
+	return uids
 }
 
 func runOrdersList() {

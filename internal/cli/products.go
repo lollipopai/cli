@@ -27,8 +27,8 @@ var productsSearchCmd = &cobra.Command{
 }
 
 var productsGetCmd = &cobra.Command{
-	Use:   "get <id>",
-	Short: "Get a product by ID",
+	Use:   "get <uid>",
+	Short: "Get a product by Sainsbury's product UID",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		caller := newTwirpCaller()
