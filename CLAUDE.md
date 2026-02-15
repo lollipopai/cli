@@ -1,8 +1,8 @@
-# cpk - CherryPick CLI
+# cpk - Cherrypick CLI
 
 ## Project Overview
 
-Go CLI tool for the CherryPick API. Communicates via Twirp RPC (protobuf-over-HTTP/JSON) to the CherryPick Rails backend.
+Go CLI tool for the Cherrypick API. Communicates via Twirp RPC (protobuf-over-HTTP/JSON) to the Cherrypick Rails backend.
 
 ## Architecture
 

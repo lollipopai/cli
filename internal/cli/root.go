@@ -15,8 +15,8 @@ var Version = "dev"
 
 var rootCmd = &cobra.Command{
 	Use:   "cpk",
-	Short: "CherryPick CLI - interact with the CherryPick API",
-	Long: `CherryPick CLI - interact with the CherryPick API
+	Short: "Cherrypick CLI - interact with the Cherrypick API",
+	Long: `Cherrypick CLI - interact with the Cherrypick API
 
 Examples:
   cpk login                              Sign in via OAuth in browser
@@ -37,7 +37,7 @@ Examples:
   cpk plan                               Show current meal plan
   cpk plan add-recipe 1 100 101          Add recipes to a plan
   cpk playlists                          List playlists
-  cpk config set-url https://app.cherrypick.co
+  cpk config set-url https://alpha.lollipopai.com
   cpk config show                        Show current config
   cpk call <service> <method> [payload]  Raw Twirp call
   cpk logout                             Clear credentials`,

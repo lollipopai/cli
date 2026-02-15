@@ -38,7 +38,7 @@ brews:
       owner: lollipopai
       name: homebrew-tap
     homepage: https://github.com/lollipopai/cli
-    description: CherryPick CLI - interact with the CherryPick API
+    description: Cherrypick CLI - interact with the Cherrypick API
     license: MIT
     install: |
       bin.install "cpk"

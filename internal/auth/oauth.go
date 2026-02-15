@@ -81,7 +81,7 @@ func DiscoverOAuthConfig(client *httpclient.Client, baseURL string) (*OAuthConfi
 // RegisterClient performs dynamic client registration.
 func RegisterClient(client *httpclient.Client, registrationEndpoint string) (string, error) {
 	payload := map[string]any{
-		"client_name":                "CherryPick CLI",
+		"client_name":                "Cherrypick CLI",
 		"redirect_uris":             []string{OAuthRedirectURI},
 		"token_endpoint_auth_method": "none",
 	}

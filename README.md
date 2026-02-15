@@ -1,6 +1,6 @@
-# cpk - CherryPick CLI
+# cpk - Cherrypick CLI
 
-A command-line client for the [CherryPick](https://www.cherrypick.co/) API. Single static binary — no runtime dependencies.
+A command-line client for the [Cherrypick](https://alpha.lollipopai.com/) API. Single static binary — no runtime dependencies.
 
 ## Install
 
@@ -30,10 +30,10 @@ make install    # copies to GOPATH/bin or /usr/local/bin
 
 ## Setup
 
-Point the CLI at your CherryPick instance (defaults to `https://localhost:3000`):
+Point the CLI at your Cherrypick instance (defaults to `https://localhost:3000`):
 
 ```bash
-cpk config set-url https://app.cherrypick.co
+cpk config set-url https://alpha.lollipopai.com
 ```
 
 ## Authentication

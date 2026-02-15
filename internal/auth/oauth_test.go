@@ -60,7 +60,7 @@ func TestRegisterClient(t *testing.T) {
 
 		var body map[string]any
 		json.NewDecoder(r.Body).Decode(&body)
-		assert.Equal(t, "CherryPick CLI", body["client_name"])
+		assert.Equal(t, "Cherrypick CLI", body["client_name"])
 		assert.Equal(t, "none", body["token_endpoint_auth_method"])
 
 		json.NewEncoder(w).Encode(map[string]string{

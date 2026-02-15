@@ -13,7 +13,7 @@ import (
 
 var loginCmd = &cobra.Command{
 	Use:   "login",
-	Short: "Sign in to CherryPick via OAuth",
+	Short: "Sign in to Cherrypick via OAuth",
 	Run: func(cmd *cobra.Command, args []string) {
 		runLogin()
 	},
